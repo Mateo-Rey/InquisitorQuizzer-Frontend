@@ -5,19 +5,25 @@ import { useState } from "react";
 function App() {
   const [input, setInput] = useState("");
   const [chatLog, setChatLog] = useState([
-    {
-      user: "gpt",
-      message: "How can I help you today?",
-    },
-    {
-      user: "me",
-      message: "How do I write an HTTP request",
-    },
+    
   ]);
+  console.log(chatLog);
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setChatLog([...chatLog], { user: "Me", message: `${input}` });
+    let chatLogNew = [...chatLog, { user: "Me", message: `${input}` }];
     setInput("");
+    setChatLog([...chatLogNew])
+    const messages = chatLogNew.map((message) => message.message).
+    join("\n");
+    const response = await fetch("http://localhost:3080/", {
+      method: "POST",
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        message: messages,
+      })
+    })
+    const data = await response.json();
+    setChatLog([...chatLogNew, { user: "gpt", message: `${data.message}`}]);
   };
   return (
     <div className="App">

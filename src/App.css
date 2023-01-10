@@ -66,6 +66,7 @@
 }
 .message {
   padding-left: 40px;
+  overflow: scroll;
   padding-right: 40px;
 }
 .avatar.chatgpt {
@@ -83,6 +84,7 @@
 
 .chatbox {
   flex: 1;
+  overflow: scroll;
   background-color: #343541;
   position: relative;
 }
