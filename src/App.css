@@ -15,7 +15,12 @@
   padding: 10px;
   background-color: #202123;
 }
-
+.warning {
+  color: orange;
+}
+.boldp {
+  font-weight: bold;
+}
 .sidemenubutton {
   padding: 12px;
   border: 1px solid white;
@@ -24,7 +29,7 @@
   transition: ease 0.25s all;
 }
 .sidemenubutton:hover {
-  background-color: rgb(255, 255, 255, 0.1);
+  background-color: rgb(255, 255, 255, 0.05);
 }
 .sidemenubutton span {
   padding-left: 6px;
@@ -49,8 +54,23 @@
   padding: 12px;
   box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.25);
 }
+.tokens {
+  display: flex;
+  item-align: center;
+}
+.token-input {
+  width: 40%;
+  border: 1px solid white;
+  background: none repeat scroll;
+  color: white;
+  height: 40px;
+  position: relative;
+  top: 14px;
+  
+}
 .chatlog {
   textalign: left;
+  overflow: scroll;
 }
 .chatmessage {
   background-color: #444654
@@ -63,6 +83,24 @@
   margin-left: auto;
   margin-right: auto;
   display: flex;
+}
+.add-button {
+  cursor: pointer;
+}
+.temperature {
+  display: flex;
+}
+.intro-frame {
+  border: 1px solid white;
+  height: 70%;
+  margin-top: 20px;
+}
+label {
+  margin: 5px;
+  font-weight: bold;
+}
+.engine-select {
+  width: 50%;
 }
 .message {
   padding-left: 40px;
@@ -84,7 +122,6 @@
 
 .chatbox {
   flex: 1;
-  overflow: scroll;
   background-color: #343541;
   position: relative;
 }
