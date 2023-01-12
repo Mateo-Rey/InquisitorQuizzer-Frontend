@@ -7,7 +7,7 @@ function App() {
   const [models, setModels] = useState([]);
   const [tokens, setTokens] = useState(100);
   const [temperature, setTemperature] = useState(5);
-  const [currentModel, setCurrentModel] = useState("ada");
+  const [currentModel, setCurrentModel] = useState("text-davinci-003");
   const [chatLog, setChatLog] = useState([]);
   console.log(chatLog);
   console.log(temperature);
@@ -27,6 +27,7 @@ function App() {
     setInput("");
     setChatLog([...chatLogNew]);
     const messages = chatLogNew.map((message) => message.message).join("\n");
+    const newTemp = temperature/10;
     const response = await fetch("http://localhost:3080/", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -34,7 +35,7 @@ function App() {
         message: messages,
         currentModel,
         tokens,
-        temperature,
+        newTemp,
       }),
     });
     const data = await response.json();
