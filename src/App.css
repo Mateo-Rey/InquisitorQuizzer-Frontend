@@ -3,6 +3,7 @@
   display: flex;
   background-color: #282c34;
   color: white;
+  height: 100%;
   position: absolute;
   top: 0;
   bottom: 0;
@@ -36,7 +37,7 @@
   padding-right: 12px;
 }
 .chatinputholder {
-  padding: 24px;
+  
   position: absolute;
   bottom: 0;
   left: 0;
@@ -74,10 +75,12 @@ p {
 }
 .chatlog {
   textalign: left;
+  height: 90%;
   overflow: scroll;
 }
 .chatmessage {
-  background-color: #444654
+  background-color: #444654;
+  display: flex;
 }
 .chatmessagecenter {
   padding: 12px;
@@ -108,7 +111,6 @@ label {
 }
 .message {
   padding-left: 40px;
-  overflow: scroll;
   padding-right: 40px;
 }
 .avatar.chatgpt {

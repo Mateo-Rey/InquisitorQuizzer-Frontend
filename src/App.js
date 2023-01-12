@@ -16,7 +16,7 @@ function App() {
     getEngines();
   }, []);
   const getEngines = async () => {
-    fetch("http://localhost:3080/models")
+    fetch("https://inquisitorquizzerapi.web.app/models")
       .then((response) => response.json())
       .then((data) => setModels(data.models));
   };
@@ -28,7 +28,7 @@ function App() {
     setChatLog([...chatLogNew]);
     const messages = chatLogNew.map((message) => message.message).join("\n");
     const newTemp = temperature/10;
-    const response = await fetch("http://localhost:3080/", {
+    const response = await fetch("https://inquisitorquizzerapi.web.app/", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
