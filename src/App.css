@@ -68,6 +68,10 @@
   top: 14px;
   
 }
+p {
+  line-spacing: 5px;
+  
+}
 .chatlog {
   textalign: left;
   overflow: scroll;

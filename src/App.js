@@ -9,10 +9,9 @@ function App() {
   const [temperature, setTemperature] = useState(5);
   const [currentModel, setCurrentModel] = useState("ada");
   const [chatLog, setChatLog] = useState([]);
+  console.log(chatLog);
+  console.log(temperature);
 
-  const clearChat = () => {
-    setChatLog([]);
-  };
   useEffect(() => {
     getEngines();
   }, []);
@@ -23,6 +22,7 @@ function App() {
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
+    console.log('Submit')
     let chatLogNew = [...chatLog, { user: "Me", message: `${input}` }];
     setInput("");
     setChatLog([...chatLogNew]);
@@ -38,18 +38,19 @@ function App() {
       }),
     });
     const data = await response.json();
+    console.log(data.message)
     setChatLog([...chatLogNew, { user: "gpt", message: `${data.message}` }]);
   };
   return (
     <div className="App">
       <aside className="sidemenu">
-        <div className="sidemenubutton" onClick={clearChat}>
+        <div className="sidemenubutton">
 
           
         
         
         <div className="temperature">
-          <label>Specificity</label>
+          <label>Creativity</label>
           <input value={temperature} type="range" min="1" max="10" onChange={({ target: { value: radius } }) => {
                     setTemperature(radius);
                   }}/>
@@ -71,7 +72,7 @@ function App() {
         </div>
         </div>
           <div className="sidemenubutton intro-frame">
-              <p>Welcome to a short project I made called Inquisitor Quizzer</p>
+              <p>Welcome to a short project I made called Inquisitor Quizzer, which will you to test this powerful AI's knowledge. Questions ranging from coding, math, english, and science problems.</p><p> Built off of OpenAI's API I present a more flexible AI with multiple engine models for further specificity in answering your questions. </p><p> For most questions I recommend using any of the text-davinci, text-curie, or text-ada engine's.</p>
           </div>
       </aside>
       <section className="chatbox">
