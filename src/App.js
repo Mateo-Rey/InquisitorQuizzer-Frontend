@@ -16,7 +16,7 @@ function App() {
     getEngines();
   }, []);
   const getEngines = async () => {
-    fetch("https://inquisitorquizzerapi.web.app/models")
+    fetch("https://dukequeryapiendpoint.web.app/models")
       .then((response) => response.json())
       .then((data) => setModels(data.models));
   };
@@ -28,7 +28,7 @@ function App() {
     setChatLog([...chatLogNew]);
     const messages = chatLogNew.map((message) => message.message).join("\n");
     const newTemp = temperature/10;
-    const response = await fetch("https://inquisitorquizzerapi.web.app/", {
+    const response = await fetch("https://dukequeryapiendpoint.web.app/question-post", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
