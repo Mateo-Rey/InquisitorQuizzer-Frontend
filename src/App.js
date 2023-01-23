@@ -9,25 +9,31 @@ function App() {
   const [temperature, setTemperature] = useState(5);
   const [currentModel, setCurrentModel] = useState("text-davinci-003");
   const [chatLog, setChatLog] = useState([]);
-  console.log(chatLog);
-  console.log(temperature);
+  
 
+  const clearChatLog = () => {
+    setChatLog([]);
+  }
   useEffect(() => {
     getEngines();
   }, []);
   const getEngines = async () => {
     fetch("https://dukequeryapiendpoint.web.app/models")
       .then((response) => response.json())
-      .then((data) => setModels(data.models));
+      .then((data) => {
+        const temp = data.models;
+        const filtered = temp.filter(model => model.id.includes("text-davinci-0"));
+        setModels(filtered);
+      });
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Submit')
     let chatLogNew = [...chatLog, { user: "Me", message: `${input}` }];
     setInput("");
     setChatLog([...chatLogNew]);
     const messages = chatLogNew.map((message) => message.message).join("\n");
     const newTemp = temperature/10;
+    
     const response = await fetch("https://dukequeryapiendpoint.web.app/question-post", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -39,14 +45,15 @@ function App() {
       }),
     });
     const data = await response.json();
-    console.log(data.message)
     setChatLog([...chatLogNew, { user: "gpt", message: `${data.message}` }]);
   };
   return (
     <div className="App">
       <aside className="sidemenu">
         <div className="sidemenubutton">
-
+        <div>
+          <button onClick={clearChatLog}><div className="boldp">Clear Chat</div></button>
+        </div>
           
         
         
@@ -73,7 +80,7 @@ function App() {
         </div>
         </div>
           <div className="sidemenubutton intro-frame">
-              <p>Welcome to a short project I made called Inquisitor Quizzer, which will you to test this powerful AI's knowledge. Questions ranging from coding, math, english, and science problems.</p><p> Built off of OpenAI's API I present a more flexible AI with multiple engine models for further specificity in answering your questions. </p><p> For most questions I recommend using any of the text-davinci, text-curie, or text-ada engine's.</p>
+              <p>Welcome to a short project I made called Inquisitor Quizzer, which will you to test this powerful AI's knowledge.</p><p> Built off of OpenAI's API I present a more flexible AI with multiple engine models for further specificity in answering your questions. </p><p> For most questions I recommend using any of the text-davinci, text-curie, or text-ada engine's.</p>
           </div>
       </aside>
       <section className="chatbox">
