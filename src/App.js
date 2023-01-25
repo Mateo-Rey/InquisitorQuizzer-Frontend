@@ -22,7 +22,7 @@ function App() {
       .then((response) => response.json())
       .then((data) => {
         const temp = data.models;
-        const filtered = temp.filter(model => model.id.includes("text-davinci-0"));
+        const filtered = temp.filter(model => model.id.includes('text-davinci-'));
         setModels(filtered);
       });
   };
@@ -33,7 +33,6 @@ function App() {
     setChatLog([...chatLogNew]);
     const messages = chatLogNew.map((message) => message.message).join("\n");
     const newTemp = temperature/10;
-    
     const response = await fetch("https://dukequeryapiendpoint.web.app/question-post", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -54,9 +53,6 @@ function App() {
         <div>
           <button onClick={clearChatLog}><div className="boldp">Clear Chat</div></button>
         </div>
-          
-        
-        
         <div className="temperature">
           <label>Creativity</label>
           <input value={temperature} type="range" min="1" max="10" onChange={({ target: { value: radius } }) => {
@@ -80,7 +76,7 @@ function App() {
         </div>
         </div>
           <div className="sidemenubutton intro-frame">
-              <p>Welcome to a short project I made called Inquisitor Quizzer, which will you to test this powerful AI's knowledge.</p><p> Built off of OpenAI's API I present a more flexible AI with multiple engine models for further specificity in answering your questions. </p><p> For most questions I recommend using any of the text-davinci, text-curie, or text-ada engine's.</p>
+              <p> Built off of OpenAI's API I present a more flexible AI with multiple engine models to prevent server overload and querying options for more robust responses.</p>
           </div>
       </aside>
       <section className="chatbox">
@@ -88,6 +84,7 @@ function App() {
           {chatLog.map((message, index) => (
             <ChatMessage key={index} message={message} />
           ))}
+          
         </div>
 
         <div className="chatinputholder">
