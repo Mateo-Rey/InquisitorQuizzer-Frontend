@@ -1,3 +1,4 @@
+import Avatar from '../assets/quizAvatar.jpg';
 export const ChatMessage = ({ message }) => {
     return (
       <div className={`chatmessage ${message.user === "gpt" && "chatgpt"}`}>

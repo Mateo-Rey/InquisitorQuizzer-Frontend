@@ -100,7 +100,6 @@ p {
 
 .intro-frame {
   border: 1px solid white;
-  display: flex;
   margin-top: 20px;
 }
 label {
