@@ -1,8 +1,10 @@
 import React from 'react'
-
+import "../styles/EditPage.css"
 function TextEditPage() {
   return (
-    <div>TextEditPage</div>
+    <div className='App'>
+      
+    </div>
   )
 }
 

@@ -5,6 +5,7 @@ import TextEditPage from './pages/TextEditPage.js';
 import ImageGenerationPage from './pages/ImageGenerationPage.js';
 function App() {
   return (
+    
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<CompletionPage />} />
@@ -12,6 +13,7 @@ function App() {
         <Route path="/image-generation" element={<ImageGenerationPage/>} />
       </Routes>
     </BrowserRouter>
+   
   );
 }
 

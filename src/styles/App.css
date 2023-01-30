@@ -29,9 +29,10 @@
   text-align: left;
   transition: ease 0.25s all;
 }
-.sidemenubutton:hover {
-  background-color: rgb(255, 255, 255, 0.05);
+.margin5 {
+  margin-top: 10px;
 }
+
 .sidemenubutton span {
   padding-left: 6px;
   padding-right: 12px;
@@ -146,6 +147,9 @@ label {
     overflow: scroll;
   }
 
+}
+.links {
+  color: #fff;
 }
 .chatbox {
   flex: 1;
