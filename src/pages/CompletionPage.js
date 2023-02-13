@@ -60,7 +60,8 @@ function CompletionPage() {
             <button onClick={clearChatLog}>
               <div className="boldp">Clear Chat</div>
             </button>
-
+          </div>
+          <div className="margin5">
             <label>Creativity</label>
             <input
               value={temperature}
@@ -72,7 +73,7 @@ function CompletionPage() {
               }}
             />
           </div>
-          <div className="tokens margin5">
+          <div className="tokens">
             <p className="boldp">Context Length</p>
             <p className="warning">Hard Cap of 1000</p>
             <input
@@ -83,7 +84,7 @@ function CompletionPage() {
               onChange={(e) => setTokens(e.target.value)}
             />
           </div>
-          <div className="models margin5">
+          <div className="models">
             <label>Engine</label>
             <select
               className="engine-select"
@@ -104,8 +105,12 @@ function CompletionPage() {
             AI for questions, images, and even editing your own work!
           </p>{" "}
           <div className="links">
-          <Link className="links" to="/text-edit">Text Editor</Link>
-          <Link className="links" to="/image-generation">Image Generator</Link>
+            <Link className="links" to="/text-edit">
+              Text Editor
+            </Link>
+            <Link className="links" to="/image-generation">
+              Image Generator
+            </Link>
           </div>
         </div>
       </aside>
