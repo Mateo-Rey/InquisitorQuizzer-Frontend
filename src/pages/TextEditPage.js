@@ -88,9 +88,9 @@ function TextEditPage() {
         <div className="sidemenubutton intro-frame">
           <p>
             {" "}
-            Welcome to a short project I made which allows for you to prompt my
-            AI for questions, images, and even editing your own work!
+            Have you ever needed a quick review? Maybe even a last minute spell check?
           </p>{" "}
+          <p>Simply input your modification instructions and input the text you want edited!</p>
           <div className="links">
             <Link className="links" to="/">
               Text Completion
@@ -117,7 +117,7 @@ function TextEditPage() {
               value={input}
               onChange={(e) => setInput(e.target.value)}
             ></input>
-            <label>Edit Instructions</label>
+            <label>Instructions</label>
             <input
               rows="1"
               value={instructions}

@@ -1,5 +1,73 @@
-.sidebar {
+.App {
+    text-align: center;
+    display: flex;
+    background-color: #282c34;
+    color: white;
     height: 100%;
-    width: 20%;
-    background-color: #fff;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+}
+.sidebar {
+  width: 260px;
+  padding: 10px;
+  background-color: #202123;
+}
+
+.hero {
+  display: flex;
+}
+.box {
+  border: 1px solid white;
+  padding: 10px;
+}
+
+.responsebox {
+    overflow: scroll;
+    height: 93%;
+    width: 100%;
+}
+
+.inputbox {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: -200px;
+    
+}
+.inputarea  {
+    background-color: #40414f;
+    border-radius: 5px;
+    border: none;
+    width: 30%;
+    margin: 12px;
+    outline: none;
+    color: white;
+    font-size: 1.25em;
+    padding: 12px;
+    box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.25);
+}
+
+.amount-input {
+  height: 10%;
+  width: 10%;
+  outline: none;
+  background-color: #fff;
+  border: black 1px solid;
+  shadow: black 5px;
+}
+@media only screen and (max-width: 600px) {
+  .sidebar {
+    flex: 1;
+    width: 100%;
+    display: flex;
+    overflow: scroll;
+    flex-direction: column;
+  }
+  .hero {
+    flex-direction: column;
+    flex: 2;
+  }
 }

@@ -104,6 +104,7 @@ function CompletionPage() {
             Welcome to a short project I made which allows for you to prompt my
             AI for questions, images, and even editing your own work!
           </p>{" "}
+          <p>This page allows you to take any prompt, complex or simple, and obtain a robust response generated in seconds!</p>
           <div className="links">
             <Link className="links" to="/text-edit">
               Text Editor
